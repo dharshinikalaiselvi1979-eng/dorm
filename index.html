@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dorm Marketplace</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <h1>Dorm Marketplace</h1>
+        <p>List, claim, and manage campus handoff items.</p>
+      </div>
+      <div class="status-pill" id="sessionStatus">Session ID: <span id="sessionId"></span></div>
+    </header>
+
+    <main>
+      <section class="panel">
+        <h2>List a new item</h2>
+        <form id="itemForm">
+          <label>
+            Title
+            <input type="text" id="itemTitle" placeholder="Textbook, bike, fridge" required />
+          </label>
+          <label>
+            Category
+            <select id="itemCategory" required>
+              <option value="Textbook">Textbook</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Furniture">Furniture</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+          <label>
+            Description
+            <textarea id="itemDescription" placeholder="Condition, brand, size..." required></textarea>
+          </label>
+          <label>
+            Pickup location
+            <input type="text" id="itemLocation" placeholder="Dorm lobby, study hall" required />
+          </label>
+          <button type="submit">Publish Listing</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>Marketplace</h2>
+        <div id="itemsContainer" class="items-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <template id="itemTemplate">
+    <article class="item-card">
+      <div class="item-header">
+        <div>
+          <h3 class="item-title"></h3>
+          <div class="item-meta"></div>
+        </div>
+        <span class="status-badge"></span>
+      </div>
+      <p class="item-description"></p>
+      <p class="item-location"></p>
+      <div class="item-actions"></div>
+      <div class="item-footer"></div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
